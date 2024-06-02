@@ -5,12 +5,11 @@ require('dotenv').config();
 const axios = require('axios');
 const { WebhookClient, EmbedBuilder } = require('discord.js');
 
-// Function to get the current date and time in Australia/Sydney timezone
+// Function to get the current date and time
 function getCurrentDateTime() {
-  const options = { timeZone: 'Australia/Sydney' };
   const now = new Date();
-  const dateStamp = now.toLocaleDateString('en-AU', options);
-  const timeStamp = now.toLocaleTimeString('en-AU', options);
+  const dateStamp = now.toLocaleDateString('en-AU');
+  const timeStamp = now.toLocaleTimeString('en-AU');
   return `${dateStamp} @ ${timeStamp}`;
 }
 
