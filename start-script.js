@@ -14,7 +14,6 @@ function clearConsole() {
 
 // Function to get the current date and time in Australia/Sydney timezone
 function getCurrentDateTime() {
-  const options = { timeZone: 'Australia/Sydney' };
   const now = new Date();
   const dateStamp = now.toLocaleDateString('en-AU', options);
   const timeStamp = now.toLocaleTimeString('en-AU', options);
