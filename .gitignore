@@ -25,3 +25,6 @@ replay_pid*
 
 # ignore .env file (store secrets in there)
 .env
+
+# ignore node_modules to prevent issues when cloning repo across different platform
+node_modules/
