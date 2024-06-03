@@ -2,6 +2,18 @@
 
 MCStatus Bot for Discord is a bot designed to fetch the status of Minecraft servers and display that information in a Discord server. It periodically checks the status of Minecraft servers (Java Edition and Bedrock Edition) using user-provided API URLs from <https://mcstatus.io> and updates the server status on Discord using webhooks and embeds.
 
+#### Desktop Example
+
+![desktop](https://raw.githubusercontent.com/NotYourAverageGamer/MCStatus-Bot-for-Discord/main/images/desktop.png)
+
+#### iOS Example
+
+![ios](https://raw.githubusercontent.com/NotYourAverageGamer/MCStatus-Bot-for-Discord/main/images/ios.png)
+
+#### Android Example
+
+![android](https://raw.githubusercontent.com/NotYourAverageGamer/MCStatus-Bot-for-Discord/main/images/android.png)
+
 ## Features
 
 - Fetches and displays the status of Minecraft servers on Discord for both Java and Bedrock Editions.
