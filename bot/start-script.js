@@ -24,7 +24,7 @@ function getCurrentDateTime() {
 async function checkInternetConnection() {
   try {
     // Sending a GET request to Cloudflare's website
-    await axios.get('http://www.cloudflare.com');
+    await axios.get('https://cloudflare.com');
     // If successful, return true
     return true;
   } catch (error) {
