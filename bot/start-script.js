@@ -12,11 +12,11 @@ function clearConsole() {
   console.clear();
 }
 
-// Function to get the current date and time in Australia/Sydney timezone
+// Function to get the system date and time and set the locale to use Australia's format (DD/MM/YYYY)
 function getCurrentDateTime() {
   const now = new Date();
-  const dateStamp = now.toLocaleDateString('en-AU', options);
-  const timeStamp = now.toLocaleTimeString('en-AU', options);
+  const dateStamp = now.toLocaleDateString('en-AU');
+  const timeStamp = now.toLocaleTimeString('en-AU');
   return `${dateStamp} @ ${timeStamp}`;
 }
 
@@ -62,7 +62,7 @@ async function runScript() {
   }
 
   // Execute the 'main.js' script
-  exec('node main.js', (error, stdout, stderr) => {
+  exec('node bot/main.js', (error, stdout, stderr) => {
     // If an error occurs
     if (error) {
       console.error(
