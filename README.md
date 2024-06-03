@@ -45,6 +45,8 @@ Before using the **MCStatus Bot for Discord**, make sure you have the following:
    - `API_URL_BEDROCK`: API URL for the Bedrock Edition Minecraft server.
    - `WEBHOOK_URL`: Discord webhook URL for posting updates.
    - `MESSAGE_ID`: ID of the message to edit with new embeds.
+   - `DYNMAP_URL`: Enter Dynmap URL (if applicable)
+   - `THUMBNAIL_URL`: Enter URL to server thumbnail
 
 ## Usage
 
