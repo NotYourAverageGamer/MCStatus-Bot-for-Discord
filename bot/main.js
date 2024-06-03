@@ -54,7 +54,7 @@ async function getServerStatus() {
     const embed1 = new EmbedBuilder()
       // Set embed color based on server status
       .setColor(embedColor)
-      .setTitle('HomieCraft | Java Edition')
+      .setTitle('YourServerName | Java Edition')
       .setDescription('_ _')
       .setThumbnail(process.env.THUMBNAIL_URL)
       .setURL(process.env.DYNMAP_URL)
@@ -109,7 +109,7 @@ async function getServerStatus() {
     const embed2 = new EmbedBuilder()
       // Set embed color based on server status
       .setColor(embedColor2)
-      .setTitle('HomieCraft | Bedrock Edition')
+      .setTitle('YourServerName | Bedrock Edition')
       .setDescription('_ _')
       .setThumbnail(process.env.THUMBNAIL_URL)
       // Add fields with server status information
