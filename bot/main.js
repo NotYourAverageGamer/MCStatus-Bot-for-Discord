@@ -57,12 +57,14 @@ async function getServerStatus() {
       .setTitle('YourServerName | Java Edition')
       .setDescription('_ _')
       .setThumbnail(process.env.THUMBNAIL_URL)
+      // This will set the title as a link to your Dynmap Map, feel free to change
       .setURL(process.env.DYNMAP_URL)
       // Add fields with server status information
       .addFields(
         { name: '> STATUS', value: codeBlockServerStatus, inline: true },
         { name: '> PLAYERS', value: codeBlockPlayerCount, inline: true },
         { name: '> VERSION', value: codeBlockMCVersion, inline: true },
+        // Adjust restart message to meet your requirements
         { name: '> RESTARTS', value: '```Daily @ Midnight```' }
       )
       .setTimestamp()
@@ -94,7 +96,7 @@ async function getServerStatus() {
     }
 
     const statusEmoji2 = online2 ? '🟢' : '🔴';
-    const embedColor2 = online ? 0x00ff00 : 0xff0000;
+    const embedColor2 = online2 ? 0x00ff00 : 0xff0000;
     const codeBlockServerStatus2 =
       '```ini\n' +
       statusEmoji2 +
@@ -128,12 +130,12 @@ async function getServerStatus() {
       embeds: [embed1, embed2],
     });
 
-    // Log successful embed update (in green) with timestamp
+    // Log successful embed update to console (in green) with timestamp
     console.log(
       getCurrentDateTime() + ': \x1b[32mEmbeds updated successfully.\x1b[0m'
     );
   } catch (error) {
-    // Log error (in red) with timestamp
+    // Log error to console (in red) with timestamp
     console.error(
       getCurrentDateTime() + ': \x1b[31mError updating embeds:\x1b[0m',
       error
