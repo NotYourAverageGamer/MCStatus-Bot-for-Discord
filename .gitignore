@@ -28,3 +28,5 @@ replay_pid*
 
 # ignore node_modules to prevent issues when cloning repo across different platform
 node_modules/
+
+.eslintrc.json
