@@ -30,3 +30,4 @@ replay_pid*
 node_modules/
 
 .eslintrc.json
+*.DS_Store
