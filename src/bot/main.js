@@ -62,15 +62,15 @@ async function updateDiscordEmbeds() {
     editMessageWithEmbeds(javaEmbed, bedrockEmbed);
 
     // Log successful embed update to console (in green) with timestamp
-    console.log(
+    process.stdout.write(
       getCurrentDateTime() + ': \x1b[32mEmbeds updated successfully.\x1b[0m'
     );
   } catch (error) {
     // Log error to console (in red) with timestamp
-    console.error(
-      getCurrentDateTime() + ': \x1b[31mError updating embeds:\x1b[0m',
-      error
+    process.stderr.write(
+      getCurrentDateTime() + ': \x1b[31mError updating embeds:\x1b[0m\n'
     );
+    process.stderr.write(`${error}\n`);
   }
 }
 
