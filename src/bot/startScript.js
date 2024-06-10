@@ -1,6 +1,6 @@
 const { exec } = require('child_process');
-const { getCurrentDateTime } = require('../helpers/dateTime.js');
-const { handleInternetCheckAndRetry } = require('../helpers/retryLogic.js');
+const { getCurrentDateTime } = require('../helpers/dateTime');
+const { handleInternetCheckAndRetry } = require('../helpers/retryLogic');
 
 let isFirstExecution = true;
 

@@ -1,8 +1,8 @@
 const path = require('path');
 require('dotenv').config({ path: path.join(__dirname, '../../config/.env') });
 const axios = require('axios');
-const { getCurrentDateTime } = require('../helpers/dateTime.js');
-const { editMessageWithEmbeds } = require('../webhook/webhookInit.js');
+const { getCurrentDateTime } = require('../helpers/dateTime');
+const { editMessageWithEmbeds } = require('../webhook/webhookInit');
 const {
   createJavaEmbed,
   createBedrockEmbed,
@@ -18,6 +18,7 @@ async function getServerStatus() {
     // Fetch server status data from the Java API URL
     const response1 = await axios.get(apiUrl1);
     const { online, players, version } = response1.data;
+} = require('../webhook/embedBuilders');
 
     // Process player count for Java server
     const playerCount = players ? players.online : '0';
