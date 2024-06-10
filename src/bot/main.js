@@ -1,66 +1,65 @@
+// Load environment variables from .env
 const path = require('path');
 require('dotenv').config({ path: path.join(__dirname, '../../config/.env') });
+
+// Import required modules
 const axios = require('axios');
 const { getCurrentDateTime } = require('../helpers/dateTime');
 const { editMessageWithEmbeds } = require('../webhook/webhookInit');
 const {
   createJavaEmbed,
   createBedrockEmbed,
-} = require('../webhook/embedBuilders.js');
-
-// Function to fetch server status from APIs and update Discord embeds
-async function getServerStatus() {
-  try {
-    // Get API URLs from environment variables
-    const apiUrl1 = process.env.JAVA_API_URL;
-    const apiUrl2 = process.env.BEDROCK_API_URL;
-
-    // Fetch server status data from the Java API URL
-    const response1 = await axios.get(apiUrl1);
-    const { online, players, version } = response1.data;
 } = require('../webhook/embedBuilders');
 
-    // Process player count for Java server
-    const playerCount = players ? players.online : '0';
-    const maxPlayers = players ? players.max : '0';
+// Define constants for API URLs
+const JAVA_API_URL = process.env.JAVA_API_URL;
+const BEDROCK_API_URL = process.env.BEDROCK_API_URL;
+const THUMBNAIL_URL = process.env.THUMBNAIL_URL;
+const DYNMAP_URL = process.env.DYNMAP_URL;
 
-    // Process Minecraft version for Java server
-    const mcVersion = version ? version.name_raw : 'Offline';
+// Define a function to fetch server status data from an API
+async function fetchServerStatus(apiUrl) {
+  try {
+    const response = await axios.get(apiUrl);
+    return response.data;
+  } catch (error) {
+    throw new Error(`Error fetching server status from ${apiUrl}: ${error}`);
+  }
+}
 
-    // Create embed for Java server status
-    const embed1 = createJavaEmbed(
-      online,
-      players,
-      version,
-      process.env.THUMBNAIL_URL,
-      process.env.DYNMAP_URL
+// Define a function to create embeds for server status
+async function createServerStatusEmbeds() {
+  try {
+    // Fetch server status data from Java API
+    const javaData = await fetchServerStatus(JAVA_API_URL);
+    const javaEmbed = createJavaEmbed(
+      javaData.online,
+      javaData.players,
+      javaData.version,
+      THUMBNAIL_URL,
+      DYNMAP_URL
     );
 
-    // Fetch server status data from the Bedrock API URL
-    const response2 = await axios.get(apiUrl2);
-    const {
-      online: online2,
-      players: players2,
-      version: version2,
-    } = response2.data;
-
-    // Process player count for Bedrock server
-    const playerCount2 = players2 ? players2.online : '0';
-    const maxPlayers2 = players2 ? players2.max : '0';
-
-    // Process Minecraft version for Bedrock server
-    const mcVersion2 = version2 ? version2.name : 'Offline';
-
-    // Create embed for Bedrock server status
-    const embed2 = createBedrockEmbed(
-      online2,
-      players2,
-      version2,
-      process.env.THUMBNAIL_URL
+    // Fetch server status data from Bedrock API
+    const bedrockData = await fetchServerStatus(BEDROCK_API_URL);
+    const bedrockEmbed = createBedrockEmbed(
+      bedrockData.online,
+      bedrockData.players,
+      bedrockData.version,
+      THUMBNAIL_URL
     );
 
-    // Edit Discord message with the new embeds
-    editMessageWithEmbeds(embed1, embed2);
+    return [javaEmbed, bedrockEmbed];
+  } catch (error) {
+    throw new Error(`Error creating server status embeds: ${error}`);
+  }
+}
+
+// Define the main function to update Discord embeds
+async function updateDiscordEmbeds() {
+  try {
+    const [javaEmbed, bedrockEmbed] = await createServerStatusEmbeds();
+    editMessageWithEmbeds(javaEmbed, bedrockEmbed);
 
     // Log successful embed update to console (in green) with timestamp
     console.log(
@@ -75,5 +74,5 @@ async function getServerStatus() {
   }
 }
 
-// Call function to fetch server status and update Discord embeds
-getServerStatus();
+// Call the main function to update Discord embeds
+updateDiscordEmbeds();
