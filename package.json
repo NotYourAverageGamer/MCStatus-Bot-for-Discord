@@ -1,17 +1,22 @@
 {
   "name": "mcstatus-bot-for-discord",
-  "version": "2.0.0",
-  "main": "src/bot/main.js",
+  "version": "2.1.1",
+  "main": "main.js",
   "scripts": {
-    "start": "node ./src/bot/startScript.js"
+    "start": "node ./src/bot/startScript.js",
+    "gui": "electron ."
   },
   "author": "NotYourAverageGamer",
   "license": "GPL-3.0",
   "dependencies": {
+    "ansi-to-html": "^0.7.2",
     "axios": "^1.7.4",
     "discord.js": "^14.14.1",
     "dotenv": "^16.4.5"
   },
   "keywords": [],
-  "description": "A Minecraft Server Status Bot for Discord"
+  "description": "A Minecraft Server Status Bot for Discord",
+  "devDependencies": {
+    "electron": "^31.0.1"
+  }
 }

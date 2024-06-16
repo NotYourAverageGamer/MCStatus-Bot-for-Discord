@@ -1,6 +1,6 @@
 // Load environment variables from .env
 const path = require('path');
-require('dotenv').config({ path: path.join(__dirname, '../../config/.env') });
+require('dotenv').config({ path: path.join(__dirname, '../config/.env') });
 
 // Import required modules
 const axios = require('axios');
