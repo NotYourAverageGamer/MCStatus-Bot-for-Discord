@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MCStatus Bot Control Hub</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        padding: 5px;
+        margin: 0;
+        display: flex; /* Add flexbox layout to body */
+        flex-direction: column; /* Stack elements vertically */
+        height: 98vh; /* Set body height to full viewport height */
+        background-color: #2f2f2f;
+      }
+
+      .title1 {
+        text-align: left;
+        color: rgb(94, 234, 212);
+        margin-top: 10px; /* Add some margin to top */
+      }
+
+      #output {
+        width: 98%;
+        height: 325px;
+        margin: 0 auto; /* Center horizontally */
+        font-family: monospace;
+        white-space: pre-wrap;
+        background-color: #000000;
+        border: 1px solid #000000;
+        padding: 0;
+        overflow-y: scroll;
+        color: #ffffff;
+        flex: 1; /* Make output div take up remaining space */
+      }
+
+      .button {
+        width: 50%; /* Split the width in half */
+        margin: 5px;
+        border: none;
+        border-radius: 4px;
+        color: #ffffff;
+        padding: 12px 28px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 16px;
+        cursor: pointer;
+      }
+
+      .button:hover {
+        box-shadow: 0 12px 16px 0 rgba(0, 0, 0, 0.24),
+          0 17px 50px 0 rgba(0, 0, 0, 0.19);
+      }
+
+      .start-button {
+        background-color: #04aa6d;
+        margin-right: auto; /* Push start button to the left */
+      }
+
+      .start-button:hover {
+        background-color: #3e8e41;
+      }
+
+      .stop-button {
+        background-color: #f33446;
+        margin-left: auto; /* Push start button to the left */
+      }
+
+      .stop-button:hover {
+        background-color: #bd2e2e;
+      }
+
+      .button-container {
+        display: flex;
+        justify-content: space-between; /* Distribute buttons evenly */
+        margin-top: 10px; /* Add some margin to top */
+      }
+      .button-container button:first-child {
+        margin-right: 5px; /* add some space between buttons */
+      }
+    </style>
+  </head>
+  <body>
+    <h2 class="title1">Minecraft Server Status Bot for Discord (GUI)</h2>
+    <div id="output"></div>
+    <div class="button-container">
+      <button id="start-btn" class="button start-button">Start Bot</button>
+      <button id="stop-btn" class="button stop-button" style="display: none">
+        Stop Bot
+      </button>
+    </div>
+
+    <script>
+      let isRunning = false;
+
+      const startBtn = document.getElementById('start-btn');
+      const stopBtn = document.getElementById('stop-btn');
+      const outputDiv = document.getElementById('output');
+
+      function startBot() {
+        window.electron.startBot();
+        isRunning = true;
+        startBtn.style.display = 'none'; // Hide the "Start" button
+        stopBtn.style.display = 'inline-block'; // Show the "Stop" button
+      }
+
+      function stopBot() {
+        window.electron.stopBot();
+        isRunning = false;
+        startBtn.style.display = 'inline-block'; // Show the "Start" button
+        stopBtn.style.display = 'none'; // Hide the "Stop" button
+        startBtn.addEventListener('click', startBot); // Re-add event listener
+      }
+
+      startBtn.addEventListener('click', startBot);
+      stopBtn.addEventListener('click', stopBot);
+
+      window.electron.onBotOutput((data) => {
+        outputDiv.innerHTML += data + '<br>';
+        outputDiv.scrollTop = outputDiv.scrollHeight;
+      });
+    </script>
+  </body>
+</html>
