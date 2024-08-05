@@ -2,31 +2,36 @@
 
 MCStatus Bot for Discord is a bot designed to fetch the status of Minecraft servers and display that information in a Discord server. It periodically checks the status of Minecraft servers (Java Edition and Bedrock Edition) using user-provided API URLs from [mcstatus.io](https://mcstatus.io) and updates the server status on Discord using webhooks and embeds.
 
-## Features
+## ✨ Features
 
-- Fetches and displays the status of Minecraft servers on Discord for both Java and Bedrock Editions.
+- Compatible with all versions of Minecraft (Bedrock, Java, Paper, etc.)
+- Fetches and displays the status of Minecraft servers on Discord
 - Updates server status periodically using webhooks and embeds.
 - Supports displaying `Server Status`, `Player Count`, `Server Version`, and `Restart Schedule`.
 
-## Prerequisites
+## 💡 Prerequisites
 
 Before using the **MCStatus Bot for Discord**, make sure you have the following:
 
 - `Node.js` installed. ([Installing Node.js](https://discordjs.guide/preparations/#installing-node-js))
 - A Discord server where you have permissions to add bots and manage webhooks.
-- **API URLs** for the Minecraft servers you want to monitor.
+- **API URLs** for the Minecraft servers you want to monitor. (I use [mcstatus.io](https://mcstatus.io))
   - **Java URL** example: `https://api.mcstatus.io/v2/status/java/YOUR.SERVER.IP`
   - **Bedrock URL** example: `https://api.mcstatus.io/v2/status/bedrock/YOUR.SERVER.IP`
 - A Discord webhook URL to send updates to your Discord server. (You can obtain one from [Discohook](https://discohook.org/). Formatting is handled in `main.js`)
 - A `.env` file with necessary environment variables set (copy/rename `example.env` for quick-setup).
 
-## Installation
+## ⚡️ Installation
 
-1. Download and unzip [this repository](https://github.com/NotYourAverageGamer/MCStatus-Bot-for-Discord/archive/refs/heads/main.zip) **OR** Clone it with:
+1. [Download](https://github.com/NotYourAverageGamer/MCStatus-Bot-for-Discord/archive/refs/heads/main.zip) and unzip this repo
+   <details>
+   <summary><b><i>OR</b></i> clone</summary>
 
-   ```bash
-   git clone https://github.com/NotYourAverageGamer/MCStatus-Bot-for-Discord.git
-   ```
+      ```bash
+      git clone https://github.com/NotYourAverageGamer/MCStatus-Bot-for-Discord.git
+      ``` 
+
+   </details>
 
 2. Navigate to the directory:
 
@@ -40,7 +45,9 @@ Before using the **MCStatus Bot for Discord**, make sure you have the following:
    npm install
    ```
 
-4. Copy/Rename `example.env` to `.env` and fill in the following environment variables:
+## 🛠️ Config
+
+- Copy/Rename `example.env` to `.env` and fill in the following environment variables:
    - `SERVER_NAME`: Your server name, to be displayed as the title in the webhook.
    - `JAVA_API_URL`: API URL for the Java Edition Minecraft server.
    - `BEDROCK_API_URL`: API URL for the Bedrock Edition Minecraft server.
@@ -49,7 +56,7 @@ Before using the **MCStatus Bot for Discord**, make sure you have the following:
    - `DYNMAP_URL`: Enter Dynmap URL (if applicable).
    - `THUMBNAIL_URL`: Enter URL to server thumbnail.
 
-## Usage
+## 🧑‍💻 Usage
 
 To start the bot, run the following command from inside the `MCStatus-Bot-for-Discord` directory:
 
@@ -57,22 +64,28 @@ To start the bot, run the following command from inside the `MCStatus-Bot-for-Di
 npm start
 ```
 
-This will initiate the bot, and it will periodically fetch and update the status of the Minecraft servers on your Discord server. _(Set to 15 minutes by Default)_
+This will initiate the bot, and it will periodically fetch and update the status of the Minecraft servers on your Discord server. _(Default is 15 minutes)_
 
-## Webhook/Embed Example Images _(Icon not included)_
+## 📸 Example Images _(Icon not included)_
 
-#### Desktop
+<details>
+<summary>🖥️ Desktop</summary>
+<br>
+<img src="https://raw.githubusercontent.com/NotYourAverageGamer/MCStatus-Bot-for-Discord/main/screenshots/desktop.png"/>
+</details>
 
-![desktop](https://raw.githubusercontent.com/NotYourAverageGamer/MCStatus-Bot-for-Discord/main/screenshots/desktop.png)
+<details>
+<summary>🍎 iOS</summary>
+<br>
+<img src="https://raw.githubusercontent.com/NotYourAverageGamer/MCStatus-Bot-for-Discord/main/screenshots/ios.png"/>
+</details>
 
-#### iOS
+<details>
+<summary>🤖 Android</summary>
+<br>
+<img src="https://raw.githubusercontent.com/NotYourAverageGamer/MCStatus-Bot-for-Discord/main/screenshots/android.png"/>
+</details>
 
-![ios](https://raw.githubusercontent.com/NotYourAverageGamer/MCStatus-Bot-for-Discord/main/screenshots/ios.png)
-
-#### Android
-
-![android](https://raw.githubusercontent.com/NotYourAverageGamer/MCStatus-Bot-for-Discord/main/screenshots/android.png)
-
-## License
+## 📜 License
 
 This project is licensed under the GPL-3.0 License - see the [LICENSE](LICENSE) file for details.
