@@ -85,7 +85,3 @@ This will initiate the bot, and it will periodically fetch and update the status
 <br>
 <img src="https://raw.githubusercontent.com/NotYourAverageGamer/MCStatus-Bot-for-Discord/main/screenshots/android.png"/>
 </details>
-
-## 📜 License
-
-This project is licensed under the GPL-3.0 License - see the [LICENSE](LICENSE) file for details.
