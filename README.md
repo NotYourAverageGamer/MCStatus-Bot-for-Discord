@@ -25,7 +25,7 @@ Before using the **MCStatus Bot for Discord**, make sure you have the following:
 
 1. [Download](https://github.com/NotYourAverageGamer/MCStatus-Bot-for-Discord/archive/refs/heads/main.zip) and unzip this repo
    <details>
-   <summary><b><i>OR</b></i> clone</summary>
+   <summary><b><i>OR</b></i> clone<i> (click)</i></summary>
 
       ```bash
       git clone https://github.com/NotYourAverageGamer/MCStatus-Bot-for-Discord.git
@@ -69,19 +69,19 @@ This will initiate the bot, and it will periodically fetch and update the status
 ## 📸 Example Images _(Icon not included)_
 
 <details>
-<summary>🖥️ Desktop</summary>
+<summary>🖥️ <b>Desktop</b><i> (click)</i></summary>
 <br>
 <img src="https://raw.githubusercontent.com/NotYourAverageGamer/MCStatus-Bot-for-Discord/main/screenshots/desktop.png"/>
 </details>
 
 <details>
-<summary>🍎 iOS</summary>
+<summary>🍎 <b>iOS</b><i> (click)</i></summary>
 <br>
 <img src="https://raw.githubusercontent.com/NotYourAverageGamer/MCStatus-Bot-for-Discord/main/screenshots/ios.png"/>
 </details>
 
 <details>
-<summary>🤖 Android</summary>
+<summary>🤖 <b>Android</b><i> (click)</i></summary>
 <br>
 <img src="https://raw.githubusercontent.com/NotYourAverageGamer/MCStatus-Bot-for-Discord/main/screenshots/android.png"/>
 </details>
