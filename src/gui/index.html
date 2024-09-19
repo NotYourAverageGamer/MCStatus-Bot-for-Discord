@@ -13,7 +13,7 @@
         flex-direction: column; /* Stack elements vertically */
         height: 100vh;
         overflow-y: hidden;
-        background-color: #2f2f2f;
+        background-color: #282828;
       }
 
       .title1 {
@@ -27,7 +27,7 @@
         width: 98%;
         height: 325px;
         margin: 0 auto; /* Center horizontally */
-        font-family: monospace;
+        font-family: 'Courier New', Courier, monospace;
         white-space: pre-wrap;
         background-color: #000000;
         border: 1px solid #000000;
@@ -37,12 +37,26 @@
         flex: 1; /* Make output div take up remaining space */
       }
 
+      #output::-webkit-scrollbar {
+        width: 0;
+        height: 0;
+      }
+
+      #output::-webkit-scrollbar-thumb {
+        background-color: transparent;
+        border-radius: 10px;
+      }
+
+      #output::-webkit-scrollbar-track {
+        background-color: transparent;
+      }
+
       .button {
         width: 50%;
         margin: 5px;
         border: none;
         border-radius: 4px;
-        color: #ffffff;
+        color: #e9e9e9;
         padding: 12px 28px;
         text-align: center;
         text-decoration: none;
@@ -57,21 +71,21 @@
       }
 
       .start-button {
-        background-color: #04aa6d;
+        background-color: #008b00;
         margin-right: auto; /* Push start button to the left */
       }
 
       .start-button:hover {
-        background-color: #3e8e41;
+        background-color: #007404;
       }
 
       .stop-button {
-        background-color: #f33446;
+        background-color: #ce0015;
         margin-left: auto; /* Push stop button to the right */
       }
 
       .stop-button:hover {
-        background-color: #bd2e2e;
+        background-color: #a10000;
       }
 
       .button-container {
