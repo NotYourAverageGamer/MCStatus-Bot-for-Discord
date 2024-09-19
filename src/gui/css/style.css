@@ -800,3 +800,13 @@ video {
 .focus\:ring-offset-2:focus {
   --tw-ring-offset-width: 2px;
 }
+
+a {
+  color: #007bff; /* This is a common "link blue" color */
+  text-decoration: none;
+}
+
+a:hover {
+  color: #0056b3; /* You can also set a hover color if you want */
+  text-decoration: underline;
+}

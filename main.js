@@ -30,12 +30,13 @@ function createWindow() {
 
 function createAboutWindow() {
   const aboutWindow = new BrowserWindow({
-    title: 'About MC-StatusBot',
-    width: 400,
-    height: 300,
+    width: 420,
+    height: 210,
   });
 
   aboutWindow.loadFile('./src/gui/about.html');
+
+  aboutWindow.setMenu(null);
 }
 
 // Menu template
@@ -65,6 +66,7 @@ const menu = [
           submenu: [
             {
               label: 'About',
+              click: createAboutWindow,
             },
           ],
         },

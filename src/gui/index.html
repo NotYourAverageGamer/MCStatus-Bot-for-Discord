@@ -11,7 +11,8 @@
         margin: 0;
         display: flex; /* Add flexbox layout to body */
         flex-direction: column; /* Stack elements vertically */
-        height: 98vh; /* Set body height to full viewport height */
+        height: 100vh; /* Set body height to full viewport height */
+        overflow-y: hidden;
         background-color: #2f2f2f;
       }
 
@@ -19,6 +20,7 @@
         text-align: left;
         color: rgb(94, 234, 212);
         margin-top: 10px; /* Add some margin to top */
+        margin-left: 5px;
       }
 
       #output {
@@ -76,6 +78,7 @@
         display: flex;
         justify-content: space-between; /* Distribute buttons evenly */
         margin-top: 10px; /* Add some margin to top */
+        margin-bottom: 15px;
       }
       .button-container button:first-child {
         margin-right: 5px; /* add some space between buttons */
