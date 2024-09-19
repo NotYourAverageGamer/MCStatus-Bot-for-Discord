@@ -4,7 +4,8 @@
   "main": "main.js",
   "scripts": {
     "start": "node ./src/bot/startScript.js",
-    "gui": "electron ."
+    "gui": "electron .",
+    "dev": "nodemon --watch . --exec electron . --inspect -e js,json,html,css"
   },
   "author": "NotYourAverageGamer",
   "license": "GPL-3.0",
