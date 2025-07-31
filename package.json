@@ -1,6 +1,6 @@
 {
   "name": "mcstatus-bot-for-discord",
-  "version": "2.1.1",
+  "version": "2.2.0",
   "main": "src/bot/main.js",
   "scripts": {
     "start": "node ./src/bot/startScript.js"
