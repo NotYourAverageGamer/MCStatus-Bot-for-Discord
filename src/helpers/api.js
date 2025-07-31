@@ -20,4 +20,9 @@ async function getBedrockServerStatus() {
   return fetchServerStatus(bedrockApiUrl);
 }
 
-module.exports = { getJavaServerStatus, getBedrockServerStatus };
+async function getCobblemonServerStatus() {
+  const cobblemonApiUrl = process.env.COBBLEMON_API_URL;
+  return fetchServerStatus(cobblemonApiUrl);
+}
+
+module.exports = { getJavaServerStatus, getBedrockServerStatus, getCobblemonServerStatus };

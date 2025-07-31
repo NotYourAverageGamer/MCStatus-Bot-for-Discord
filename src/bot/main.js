@@ -7,12 +7,15 @@ const { editMessageWithEmbeds } = require('../webhook/webhookInit');
 const {
   createJavaEmbed,
   createBedrockEmbed,
+  createCobblemonEmbed,
 } = require('../webhook/embedBuilders');
 
 const JAVA_API_URL = process.env.JAVA_API_URL;
 const BEDROCK_API_URL = process.env.BEDROCK_API_URL;
+const COBBLEMON_API_URL = process.env.COBBLEMON_API_URL;
 const THUMBNAIL_URL = process.env.THUMBNAIL_URL;
-const DYNMAP_URL = process.env.DYNMAP_URL;
+const JAVA_DYNMAP_URL = process.env.JAVA_DYNMAP_URL;
+const COBBLEMON_DYNMAP_URL = process.env.COBBLEMON_DYNMAP_URL;
 
 async function fetchServerStatus(apiUrl) {
   try {
@@ -31,7 +34,7 @@ async function createServerStatusEmbeds() {
       javaData.players,
       javaData.version,
       THUMBNAIL_URL,
-      DYNMAP_URL
+      JAVA_DYNMAP_URL
     );
 
     const bedrockData = await fetchServerStatus(BEDROCK_API_URL);
@@ -42,7 +45,16 @@ async function createServerStatusEmbeds() {
       THUMBNAIL_URL
     );
 
-    return [javaEmbed, bedrockEmbed];
+    const cobblemonData = await fetchServerStatus(COBBLEMON_API_URL);
+    const cobblemonEmbed = createCobblemonEmbed(
+      cobblemonData.online,
+      cobblemonData.players,
+      cobblemonData.version,
+      THUMBNAIL_URL,
+      COBBLEMON_DYNMAP_URL
+    );
+
+    return [javaEmbed, bedrockEmbed, cobblemonEmbed];
   } catch (error) {
     throw new Error(`Error creating server status embeds: ${error}`);
   }
@@ -50,8 +62,8 @@ async function createServerStatusEmbeds() {
 
 async function updateDiscordEmbeds() {
   try {
-    const [javaEmbed, bedrockEmbed] = await createServerStatusEmbeds();
-    editMessageWithEmbeds(javaEmbed, bedrockEmbed);
+    const [javaEmbed, bedrockEmbed, cobblemonEmbed] = await createServerStatusEmbeds();
+    editMessageWithEmbeds(javaEmbed, bedrockEmbed, cobblemonEmbed);
 
     process.stdout.write(
       getCurrentDateTime() + ': \x1b[32mEmbeds updated successfully.\x1b[0m'
