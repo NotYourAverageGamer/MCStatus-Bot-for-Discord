@@ -29,7 +29,7 @@ Before using the **MCStatus Bot for Discord**, make sure you have the following:
 
       ```bash
       git clone https://github.com/NotYourAverageGamer/MCStatus-Bot-for-Discord.git
-      ``` 
+      ```
 
    </details>
 
@@ -49,11 +49,13 @@ Before using the **MCStatus Bot for Discord**, make sure you have the following:
 
 - Copy/Rename `example.env` to `.env` and fill in the following environment variables:
    - `SERVER_NAME`: Your server name, to be displayed as the title in the webhook.
-   - `JAVA_API_URL`: API URL for the Java Edition Minecraft server.
-   - `BEDROCK_API_URL`: API URL for the Bedrock Edition Minecraft server.
+   - `JAVA_API_URL`: API URL for the Java Edition Minecraft server. (if applicable)
+   - `BEDROCK_API_URL`: API URL for the Bedrock Edition Minecraft server. (if applicable)
+   - `COBBLEMON_API_URL`: API URL for the Cobblemon Minecraft server. (if applicable)
    - `WEBHOOK_URL`: Discord webhook URL for posting updates.
    - `MESSAGE_ID`: ID of the message to edit with new embeds.
-   - `DYNMAP_URL`: Enter Dynmap URL (if applicable).
+   - `JAVA_DYNMAP_URL`: Enter Java Dynmap URL (if applicable).
+   - `COBBLEMON_DYNMAP_URL`: Enter Cobblemon Dynmap URL (if applicable).
    - `THUMBNAIL_URL`: Enter URL to server thumbnail.
 
 ## 🧑‍💻 Usage
